@@ -1,4 +1,3 @@
-﻿
 # Currency Exchange Rate
 
 > University Project (EECE 430L - Web, Mobile, and Application Development Labw @ AUB) where we develop a n exchange rate app on multiple platforms having a REST API backend.
@@ -10,7 +9,9 @@ There are three frontend platforms (web based using React, desktop app using Jav
 ### Architecture
 The complete application architecture can be found in the image below. To know more about each platform, you can check the README files of each.
 
-![](res/architecture.png?raw=true)
+<p align="center">
+  <img src="res/architecture.png?raw=true"/>
+</p>
 
 ### Functional Documentation
 Below you can find a description of the features supported by our application. The implementation of each may differ to better suit each platform.
@@ -32,13 +33,7 @@ To be able to run the application on any platform, you need to
  1. Have the backend running
  2. Have a database to connect to
 
-To setup the backend, please read backend [documentation](backend/README.md) 
-
-To setup the react frontend, please read frontend [documentation](frontend/README.md) 
-
-To setup the java-based desktop app, please read desktop [documentation](desktop/README.md) 
-
-To setup the android, please read android [documentation](android/README.md) 
-
-
-
+To setup the backend, please read backend [documentation](backend/README.md).</br>
+To setup the react frontend, please read frontend [documentation](frontend/README.md).</br>
+To setup the java-based desktop app, please read desktop [documentation](desktop/README.md).</br>
+To setup the android, please read android [documentation](android/README.md).
