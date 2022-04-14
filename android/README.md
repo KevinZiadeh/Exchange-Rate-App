@@ -16,7 +16,7 @@ git clone https://github.com/KevinZiadeh/Exchange-Rate-App.git
 - Wait for Grade to finish building. This may take a few minutes.
 - Run `MainActivity`.
 	- if you do not have a physical Android device, install the device emulator:
-		1. `Tools` -> `SDK Manager` -> `SDK Tools` -> Select `Android Emulator
+		1. `Tools` -> `SDK Manager` -> `SDK Tools` -> Select `Android Emulator`
 		2.  `Tools` -> `Device Manager` -> `Create device` -> Select whichever hardware setup you want -> `Next` -> Select the newest software which by the time of writng is `API 32` 
 
 ## Overview
