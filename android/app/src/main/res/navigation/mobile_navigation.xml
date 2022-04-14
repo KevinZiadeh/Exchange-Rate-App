@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_exchange">
+
+    <fragment
+        android:id="@+id/nav_exchange"
+        android:name="com.kmz07.currencyexchange.ui.exchange.ExchangeFragment"
+        android:label="@string/exchange_rates"
+        tools:layout="@layout/fragment_exchange" />
+
+    <fragment
+        android:id="@+id/nav_calculator"
+        android:name="com.kmz07.currencyexchange.ui.calculator.CalculatorFragment"
+        android:label="@string/calculator"
+        tools:layout="@layout/fragment_calculator" />
+
+    <fragment
+        android:id="@+id/nav_statistics"
+        android:name="com.kmz07.currencyexchange.ui.statistics.StatisticsFragment"
+        android:label="Statistics"
+        tools:layout="@layout/fragment_statistics" />
+
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.kmz07.currencyexchange.ui.login.LoginFragment"
+        android:label="@string/login"
+        tools:layout="@layout/fragment_register" />
+
+    <fragment
+        android:id="@+id/nav_register"
+        android:name="com.kmz07.currencyexchange.ui.register.RegisterFragment"
+        android:label="@string/register"
+        tools:layout="@layout/fragment_register" />
+
+    <fragment
+        android:id="@+id/nav_transactions"
+        android:name="com.kmz07.currencyexchange.ui.transactions.TransactionsFragment"
+        android:label="@string/my_transactions"
+        tools:layout="@layout/fragment_transactions" />
+
+</navigation>

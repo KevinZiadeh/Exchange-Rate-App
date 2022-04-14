@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/drawable/side_nav_bar.xml" value="0.1" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/activity_login.xml" value="0.15670289855072464" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/activity_real_main.xml" value="0.2" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/activity_registration.xml" value="0.2" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/app_bar_real_main.xml" value="0.1" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/content_real_main.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/dialog_transaction.xml" value="0.2" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/fragment_calculator.xml" value="0.2" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/fragment_exchange.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/fragment_exchange_old.xml" value="0.15670289855072464" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/fragment_gallery.xml" value="0.2" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/fragment_home.xml" value="0.15670289855072464" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/fragment_login.xml" value="0.22" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/fragment_logout.xml" value="0.1203125" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/fragment_register.xml" value="0.15760869565217392" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/fragment_slideshow.xml" value="0.15670289855072464" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/fragment_statistics.xml" value="0.1125" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/fragment_transactions.xml" value="0.15670289855072464" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/item_transaction.xml" value="0.15670289855072464" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/nav_header_main.xml" value="0.1" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/nav_header_real_main.xml" value="0.1" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/menu/activity_main_drawer.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/menu/activity_main_drawer_logged_in.xml" value="0.14947916666666666" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/menu/activity_main_drawer_logged_out.xml" value="0.12864583333333332" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/menu/menu_logged_in.xml" value="0.2" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/menu/menu_logged_out.xml" value="0.2" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/menu/real_main.xml" value="0.2" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
