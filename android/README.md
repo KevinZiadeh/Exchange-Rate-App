@@ -21,7 +21,10 @@ git clone https://github.com/KevinZiadeh/Exchange-Rate-App.git
 
 ## Overview
 ### Structure
-![](../res/android_structure.png?raw=true)
+<p align="center">
+  <img src="../res/android_structure.png?raw=true"/>
+</p>
+
 ### API
 The API package contains all the needed information and code to be able to communicate with the backend.
 If you are not using an emulator or the backend is being run on another device, you need to edit the value of `API_URL` in `/api/retrofit.kt`  to match the URL and PORT of the backend server.
