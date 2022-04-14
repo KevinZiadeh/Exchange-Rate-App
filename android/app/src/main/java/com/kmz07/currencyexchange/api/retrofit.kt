@@ -5,7 +5,6 @@ import com.kmz07.currencyexchange.api.model.ExchangeRates
 import com.kmz07.currencyexchange.api.model.Token
 import com.kmz07.currencyexchange.api.model.Transaction
 import com.kmz07.currencyexchange.api.model.User
-import com.kmz07.currencyexchange.api.model.ConvertObject
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -40,8 +39,6 @@ object ExchangeService {
         @GET("/transaction")
         fun getTransactions(@Header("Authorization") authorization: String):
                 Call<List<Transaction>>
-        @POST("/convert")
-        fun convert(@Body convertObject: ConvertObject): Call<ConvertObject>
     }
 }
 
