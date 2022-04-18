@@ -6,12 +6,16 @@ from ..model.transaction import Transaction, transaction_schema, transactions_sc
 app_transaction = Blueprint('app_transaction', __name__)
 
 
-@app_transaction.route('/transaction', methods=['POST'])
+@app_transaction.route('/transaction/', methods=['POST'])
 def transaction():
+
  usd_amount= request.json["usd_amount"]
  lbp_amount = request.json["lbp_amount"]
  usd_to_lbp = request.json["usd_to_lbp"]
  user_id=None
+
+
+
 
  token = extract_auth_token(request)
 
@@ -23,7 +27,7 @@ def transaction():
    except:
       abort(403)
 
- if usd_amount is not None and lbp_amount is not None and usd_to_lbp is not None:
+ if (usd_amount is not None) and (usd_amount!= 0) and (lbp_amount is not None) and (lbp_amount!=0) and (usd_to_lbp is not None):
     newTransaction = Transaction(
        usd_amount = usd_amount,
        lbp_amount = lbp_amount,
