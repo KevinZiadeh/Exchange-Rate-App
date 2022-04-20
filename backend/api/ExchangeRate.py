@@ -1,4 +1,4 @@
-from statistics import median, mode, stdev
+from statistics import median, mode, stdev, mean
 
 from flask import request, jsonify, abort, Blueprint, Response
 import datetime
@@ -9,10 +9,10 @@ from ..model.transaction import Transaction
 app_rate = Blueprint('app_rate', __name__)
 
 #added number of days as an input
-@app_rate.route('/exchangeRate/<int:num_day>/', methods=['GET'])
-def exchangeRate(num_day):
+@app_rate.route('/exchangeRate/', methods=['GET'])
+def exchangeRate():
  #added as argument the num of days
- START_DATE= datetime.datetime.now() - datetime.timedelta(days=num_day)
+ START_DATE= datetime.datetime.now() - datetime.timedelta(days=20)
  END_DATE=datetime.datetime.now()
  usd_to_lbp=Transaction.query.filter(Transaction.added_date.between(START_DATE, END_DATE),Transaction.usd_to_lbp == True).all()
  lbp_to_usd = Transaction.query.filter(Transaction.added_date.between(START_DATE, END_DATE),Transaction.usd_to_lbp == False).all()
@@ -40,9 +40,9 @@ def exchangeRate(num_day):
  return jsonify(usd_to_lbp = avg_usd_lbp ,lbp_to_usd= avg_lbp_usd)
 
 #NEW: Stat +prediction
-@app_rate.route('/statistics/<int:num_day>/', methods=['GET'])
+@app_rate.route('/statistics/', methods=['GET'])
 def stats(num_day):
- START_DATE = datetime.datetime.now() - datetime.timedelta(days=num_day)
+ START_DATE = datetime.datetime.now() - datetime.timedelta(days=4)
  END_DATE = datetime.datetime.now()
  usd_to_lbp = Transaction.query.filter(Transaction.added_date.between(START_DATE, END_DATE),
                                        Transaction.usd_to_lbp == True).all()
@@ -71,6 +71,7 @@ def stats(num_day):
   stat['mode_lbp_to_usd'] = mode(rates_lbp_to_usd)
   stat['std_lbp_to_usd'] = stdev(rates_lbp_to_usd)
 
+
   stat['max_usd_to_lbp'] = max(rates_usd_to_lbp)
   stat['min_usd_to_lbp'] = min(rates_usd_to_lbp)
   stat['median_usd_to_lbp'] = median(rates_usd_to_lbp)
@@ -86,6 +87,39 @@ def stats(num_day):
   return jsonify(stat)
 
 
+@app_rate.route('/graph/', methods=['GET'])
+def graph_usd_to_lbp():
+ START_DATE = datetime.datetime.now() - datetime.timedelta(days=20)
+ END_DATE = datetime.datetime.now()
 
+ usd_to_lbp = Transaction.query.filter(Transaction.added_date.between(START_DATE, END_DATE),
+                                       Transaction.usd_to_lbp == True).all()
+ lbp_to_usd = Transaction.query.filter(Transaction.added_date.between(START_DATE, END_DATE),
+                                       Transaction.usd_to_lbp == False).all()
 
+ date=[]
+ mean_rate_lbp_to_usd=[]
+ mean_rate_usd_to_lbp = []
+ for i in range(9,-1,-1):
+  date.append((datetime.datetime.now() - datetime.timedelta(days=i)).strftime("%d %b %Y"))
+  rates_lbp_to_usd = []
+  rates_usd_to_lbp = []
+  for trans in usd_to_lbp:
+    if (trans.added_date.strftime("%d %b %Y") <= (datetime.datetime.now() - datetime.timedelta(days=i)).strftime("%d %b %Y")) and (trans.added_date - (datetime.datetime.now() - datetime.timedelta(days=i))).days >= -10:
+     rates_usd_to_lbp.append(trans.lbp_amount / trans.usd_amount)
 
+  for trans in lbp_to_usd:
+    if (trans.added_date.strftime("%d %b %Y") <= (datetime.datetime.now() - datetime.timedelta(days=i)).strftime("%d %b %Y")) and (trans.added_date - (datetime.datetime.now() - datetime.timedelta(days=i))).days >= -10:
+     rates_lbp_to_usd.append(trans.lbp_amount / trans.usd_amount)
+
+  if len(rates_lbp_to_usd)>0:
+   mean_rate_lbp_to_usd.append(mean(rates_lbp_to_usd))
+  else:
+   mean_rate_lbp_to_usd.append(-1)
+
+  if len(rates_usd_to_lbp) > 0:
+   mean_rate_usd_to_lbp.append(mean(rates_usd_to_lbp))
+  else:
+   mean_rate_usd_to_lbp.append(-1)
+
+ return jsonify(date =date,mean_rate_lbp_to_usd=mean_rate_lbp_to_usd,mean_rate_usd_to_lbp=mean_rate_usd_to_lbp)
