@@ -41,8 +41,8 @@ def exchangeRate():
 
 #NEW: Stat +prediction
 @app_rate.route('/statistics/', methods=['GET'])
-def stats(num_day):
- START_DATE = datetime.datetime.now() - datetime.timedelta(days=4)
+def stats():
+ START_DATE = datetime.datetime.now() - datetime.timedelta(days=30)
  END_DATE = datetime.datetime.now()
  usd_to_lbp = Transaction.query.filter(Transaction.added_date.between(START_DATE, END_DATE),
                                        Transaction.usd_to_lbp == True).all()
