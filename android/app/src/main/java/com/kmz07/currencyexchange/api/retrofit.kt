@@ -1,10 +1,7 @@
 package com.kmz07.currencyexchange.api
 
 import com.google.gson.GsonBuilder
-import com.kmz07.currencyexchange.api.model.ExchangeRates
-import com.kmz07.currencyexchange.api.model.Token
-import com.kmz07.currencyexchange.api.model.Transaction
-import com.kmz07.currencyexchange.api.model.User
+import com.kmz07.currencyexchange.api.model.*
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -24,7 +21,7 @@ object ExchangeService {
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
         // Create an instance of our Exchange API interface.
-        return retrofit.create(Exchange::class.java);
+        return retrofit.create(Exchange::class.java)
     }
     interface Exchange {
         @GET("/exchangeRate")
@@ -39,6 +36,12 @@ object ExchangeService {
         @GET("/transaction")
         fun getTransactions(@Header("Authorization") authorization: String):
                 Call<List<Transaction>>
+        @GET("/graph")
+        fun getGraphs(): Call<Graph>
+//        @GET("/statistics")
+//        fun getStatistics(): Call<>
+
+
     }
 }
 

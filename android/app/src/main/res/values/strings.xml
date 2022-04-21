@@ -37,4 +37,8 @@
     <string name="mytransactions">My Transactions</string>
     <string name="logout">Logout</string>
     <string name="to_refresh_the_rates_you_can_click_on_lbp_exchange_rate">To refresh the rates, you can click on LBP Exchange Rate</string>
+    <string name="lbp_rate_evolution">LBP rate evolution</string>
+    <string name="usd_rate_evolution">USD rate evolution</string>
+    <string name="usd_buy_rate_evolution">USD Buy rate evolution</string>
+    <string name="usd_sell_rate_evolution">USD Sell rate evolution</string>
 </resources>

@@ -26,13 +26,10 @@ import com.kmz07.currencyexchange.api.Authentication
 import com.kmz07.currencyexchange.api.ExchangeService
 import com.kmz07.currencyexchange.api.model.Transaction
 import com.kmz07.currencyexchange.databinding.ActivityMainBinding
-import com.kmz07.currencyexchange.ui.exchange.ExchangeFragment;
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-import android.app.Fragment;
-import kotlinx.coroutines.delay
 
 class MainActivity : AppCompatActivity() {
 

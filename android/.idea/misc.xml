@@ -4,7 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/drawable/gradient.xml" value="0.1" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.178" />
         <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/drawable/ic_menu_camera.xml" value="0.178" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.178" />
         <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/drawable/side_nav_bar.xml" value="0.1" />
         <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/activity_login.xml" value="0.15670289855072464" />
         <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/activity_main.xml" value="0.22" />
@@ -20,9 +24,10 @@
         <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/fragment_home.xml" value="0.15670289855072464" />
         <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/fragment_login.xml" value="0.22" />
         <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/fragment_logout.xml" value="0.1203125" />
-        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/fragment_register.xml" value="0.15760869565217392" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/fragment_register.xml" value="0.1" />
         <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/fragment_slideshow.xml" value="0.15670289855072464" />
-        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/fragment_statistics.xml" value="0.1125" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/fragment_statistics.xml" value="0.22" />
+        <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/fragment_statistics_old.xml" value="0.2463768115942029" />
         <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/fragment_transactions.xml" value="0.15670289855072464" />
         <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/item_transaction.xml" value="0.15670289855072464" />
         <entry key="..\:/Users/ZPKev/University/OneDrive - American University of Beirut/EECE/430L/Project/android/app/src/main/res/layout/nav_header_main.xml" value="0.1" />
