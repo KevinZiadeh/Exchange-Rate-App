@@ -38,8 +38,8 @@ object ExchangeService {
                 Call<List<Transaction>>
         @GET("/graph")
         fun getGraphs(): Call<Graph>
-//        @GET("/statistics")
-//        fun getStatistics(): Call<>
+        @GET("/statistics")
+        fun getStatistics(): Call<Statistics>
 
 
     }

@@ -1,85 +1,407 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.statistics.StatisticsFragment">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/StatisticsHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/statistics"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.statistics.StatisticsFragment">
 
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/usdBuyRateEvolChart"
-        android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.8"
-        android:layout_height="199dp"
-        android:layout_marginTop="28dp"
-        android:background="#FFFFFF"
-        android:alwaysDrawnWithCache="true"
-        android:animateLayoutChanges="true"
-        android:clickable="true"
-        android:fadeScrollbars="true"
-        android:focusable="true"
-        android:hapticFeedbackEnabled="true"
-        android:elevation="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usdBuyRateEvolHeader" />
+        <TextView
+            android:id="@+id/StatisticsHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="3dp"
+            android:text="@string/statistics"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/usdSellRateEvolHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/usd_sell_rate_evolution"
-        android:textAlignment="textStart"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.167"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/StatisticsHeader" />
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/usdBuyRateEvolChart"
+            android:layout_width="0dp"
+            android:layout_height="199dp"
+            android:layout_marginTop="12dp"
+            android:alwaysDrawnWithCache="true"
+            android:animateLayoutChanges="true"
+            android:background="#FFFFFF"
+            android:clickable="true"
+            android:elevation="10dp"
+            android:fadeScrollbars="true"
+            android:focusable="true"
+            android:hapticFeedbackEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.506"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/predictedLbpToUsdLabel"
+            app:layout_constraintWidth_percent="0.8" />
 
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/usdSellRateEvolChart"
-        android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.8"
-        android:layout_height="220dp"
-        android:layout_marginTop="28dp"
-        android:alwaysDrawnWithCache="true"
-        android:animateLayoutChanges="true"
-        android:background="#FFFFFF"
-        android:clickable="true"
-        android:fadeScrollbars="true"
-        android:hapticFeedbackEnabled="true"
-        android:elevation="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usdSellRateEvolHeader"
-        android:focusable="true" />
+        <TextView
+            android:id="@+id/usdSellRateEvolHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:padding="3dp"
+            android:text="@string/usd_sell_rate_evolution"
+            android:textAlignment="textStart"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.167"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/StatisticsHeader" />
 
-    <TextView
-        android:id="@+id/usdBuyRateEvolHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/usd_buy_rate_evolution"
-        android:textAlignment="textStart"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.167"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usdSellRateEvolChart" />
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/usdSellRateEvolChart"
+            android:layout_width="0dp"
+            android:layout_height="220dp"
+            android:layout_marginTop="12dp"
+            android:alwaysDrawnWithCache="true"
+            android:animateLayoutChanges="true"
+            android:background="#FFFFFF"
+            android:clickable="true"
+            android:elevation="10dp"
+            android:fadeScrollbars="true"
+            android:focusable="true"
+            android:hapticFeedbackEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/predictedUsdToLbpLabel"
+            app:layout_constraintWidth_percent="0.8" />
+
+        <TextView
+            android:id="@+id/usdBuyRateEvolHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/usd_buy_rate_evolution"
+            android:textAlignment="textStart"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.167"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/usdSellRateEvolChart" />
+
+        <TableLayout
+            android:id="@+id/statisticsTable"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingBottom="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/statisticsLabel"
+            app:layout_constraintWidth_percent="0.8">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/maxLbpToUsdLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@color/teal_200"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="Max Lbp To Usd Rate"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/maxLbpToUsdValue"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="N.A" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/maxUsdToLbpLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@color/teal_200"
+                    android:padding="3dp"
+                    android:text="Max Usd To Lbp Rate"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/maxUsdToLbpValue"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="N.A" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/medianLbpToUsdLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@color/teal_200"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="Median Lbp To Usd Rate"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/medianLbpToUsdValue"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="N.A" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/medianUsdToLbpLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@color/teal_200"
+                    android:padding="3dp"
+                    android:text="Median Usd To Lbp Rate"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/medianUsdToLbpValue"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="N.A" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/minLbpToUsdLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@color/teal_200"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="Min Lbp To Usd Rate"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/minLbpToUsdValue"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="N.A" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/minUsdToLbpLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@color/teal_200"
+                    android:padding="3dp"
+                    android:text="Min Usd To Lbp Rate"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/minUsdToLbpValue"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="N.A" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/modeLbpToUsdLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@color/teal_200"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="Mode Lbp To Usd Rate"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/modeLbpToUsdValue"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="N.A" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/modeUsdToLbpLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@color/teal_200"
+                    android:padding="3dp"
+                    android:text="Mode Usd To Lbp Rate"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/modeUsdToLbpValue"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="N.A" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/stdLbpToUsdLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@color/teal_200"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="Standard Deviation Lbp To Usd Rate"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/stdLbpToUsdValue"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="N.A" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/stdUsdToLbpLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@color/teal_200"
+                    android:padding="3dp"
+                    android:text="Standard Deviation Usd To Lbp Rate"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/stdUsdToLbpValue"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="N.A" />
+            </TableRow>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/predictedUsdToLbpLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Predicted Future Rate: "
+            android:textColor="@color/teal_700"
+            app:layout_constraintEnd_toEndOf="@+id/usdSellRateEvolHeader"
+            app:layout_constraintTop_toBottomOf="@+id/usdSellRateEvolHeader" />
+
+        <TextView
+            android:id="@+id/predictedUsdToLbpValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="N.A"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/predictedUsdToLbpLabel"
+            app:layout_constraintTop_toTopOf="@+id/predictedUsdToLbpLabel" />
+
+        <TextView
+            android:id="@+id/predictedLbpToUsdLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Predicted Future Rate: "
+            android:textColor="@color/teal_700"
+            app:layout_constraintEnd_toEndOf="@+id/usdBuyRateEvolHeader"
+            app:layout_constraintTop_toBottomOf="@+id/usdBuyRateEvolHeader" />
+
+        <TextView
+            android:id="@+id/predictedLbpToUsdValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="N.A"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/predictedLbpToUsdLabel"
+            app:layout_constraintTop_toTopOf="@+id/predictedLbpToUsdLabel" />
+
+        <TextView
+            android:id="@+id/statisticsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Additional Statistics"
+            android:textAlignment="textStart"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/usdBuyRateEvolChart" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
