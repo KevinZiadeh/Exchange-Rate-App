@@ -7,7 +7,7 @@ from flask_cors import CORS
 
 ## Creating app
 app = Flask(__name__)
-from .db_config import DB_CONFIG
+from db_config import DB_CONFIG
 app.config['SQLALCHEMY_DATABASE_URI'] = DB_CONFIG
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
@@ -15,9 +15,9 @@ bcrypt = Bcrypt(app)
 CORS(app)
 ## app created
 
-from .api.User import app_user
+from api.User import app_user
 app.register_blueprint(app_user)
-from .api.Transaction import app_transaction
+from api.Transaction import app_transaction
 app.register_blueprint(app_transaction)
-from .api.ExchangeRate import app_rate
+from api.ExchangeRate import app_rate
 app.register_blueprint(app_rate)

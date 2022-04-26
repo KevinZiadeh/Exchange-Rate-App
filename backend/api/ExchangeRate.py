@@ -3,13 +3,13 @@ from statistics import median, mode, stdev, mean
 from flask import request, jsonify, abort, Blueprint, Response
 import datetime
 
-from .functions import PredictFutureRate
-from ..model.transaction import Transaction
+from api.functions import PredictFutureRate
+from model.transaction import Transaction
 
 app_rate = Blueprint('app_rate', __name__)
 
 #added number of days as an input
-@app_rate.route('/exchangeRate/', methods=['GET'])
+@app_rate.route('/exchangeRate', methods=['GET'])
 def exchangeRate():
  #added as argument the num of days
  START_DATE= datetime.datetime.now() - datetime.timedelta(days=20)
@@ -40,7 +40,7 @@ def exchangeRate():
  return jsonify(usd_to_lbp = avg_usd_lbp ,lbp_to_usd= avg_lbp_usd)
 
 #NEW: Stat +prediction
-@app_rate.route('/statistics/', methods=['GET'])
+@app_rate.route('/statistics', methods=['GET'])
 def stats():
  START_DATE = datetime.datetime.now() - datetime.timedelta(days=30)
  END_DATE = datetime.datetime.now()
@@ -87,7 +87,7 @@ def stats():
   return jsonify(stat)
 
 
-@app_rate.route('/graph/', methods=['GET'])
+@app_rate.route('/graph', methods=['GET'])
 def graph_usd_to_lbp():
  START_DATE = datetime.datetime.now() - datetime.timedelta(days=20)
  END_DATE = datetime.datetime.now()

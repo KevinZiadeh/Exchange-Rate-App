@@ -1,8 +1,8 @@
 from flask import request, jsonify, abort, Blueprint, Response
 
-from .functions import create_token
-from ..model.user import user_schema, User
-from ..app import db, bcrypt
+from api.functions import create_token
+from model.user import user_schema, User
+from app import db, bcrypt
 
 app_user = Blueprint('app_user', __name__)
 

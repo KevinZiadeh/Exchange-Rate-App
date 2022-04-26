@@ -1,4 +1,4 @@
-from ..app import db, ma, bcrypt
+from app import db, ma, bcrypt
 
 class User(db.Model):
  def __init__(self, user_name, password):
