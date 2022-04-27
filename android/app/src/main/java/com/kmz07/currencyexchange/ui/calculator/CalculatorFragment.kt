@@ -13,6 +13,7 @@ import android.widget.Switch
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
+import com.kmz07.currencyexchange.api.Authentication
 import com.kmz07.currencyexchange.api.ExchangeService
 import com.kmz07.currencyexchange.api.model.ExchangeRates
 import com.kmz07.currencyexchange.databinding.FragmentCalculatorBinding

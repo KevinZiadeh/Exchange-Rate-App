@@ -41,4 +41,15 @@
     <string name="usd_rate_evolution">USD rate evolution</string>
     <string name="usd_buy_rate_evolution">USD Buy rate evolution</string>
     <string name="usd_sell_rate_evolution">USD Sell rate evolution</string>
+    <string name="exchange_with_user">Exchange with User</string>
+    <string name="add_transaction_with_another_user">Add Transaction with Another User</string>
+    <string name="receiver_name">Receiver Name</string>
+    <string name="sell_usd">Sell USD</string>
+    <string name="perform_transaction">Perform Transaction</string>
+    <string name="buy_usd">Buy USD</string>
+    <string name="my_exchanges">My Exchanges</string>
+    <string name="with">With</string>
+    <string name="name">Name</string>
+    <string name="gave_to">Gave To</string>
+    <string name="received_from">Received From</string>
 </resources>

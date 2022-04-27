@@ -15,12 +15,12 @@
         <item
             android:id="@+id/nav_statistics"
             android:title="@string/statistics" />
-
-    </group>
-    <group>
         <item
                 android:id="@+id/nav_transactions"
                 android:title="@string/mytransactions" />
+        <item
+            android:id="@+id/nav_exchangeUser"
+            android:title="@string/exchange_with_user" />
         <item
             android:id="@+id/nav_logout"
             android:title="@string/logout" />

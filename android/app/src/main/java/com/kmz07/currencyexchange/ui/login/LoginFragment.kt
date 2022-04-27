@@ -39,7 +39,6 @@ class LoginFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         val root: View = binding.root
         usernameEditText = binding.txtInputUsername

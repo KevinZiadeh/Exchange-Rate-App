@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
+import com.kmz07.currencyexchange.api.Authentication
 import com.kmz07.currencyexchange.api.ExchangeService
 import com.kmz07.currencyexchange.api.model.ExchangeRates
 import com.kmz07.currencyexchange.databinding.FragmentExchangeBinding
@@ -24,16 +24,11 @@ class ExchangeFragment : Fragment() {
     private var sellUsdTextView: TextView? = null
     var exchangeHeader: TextView? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        fetchRates()
-    }
-
-    override fun onCreateView(
+     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        fetchRates()
         _binding = FragmentExchangeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 

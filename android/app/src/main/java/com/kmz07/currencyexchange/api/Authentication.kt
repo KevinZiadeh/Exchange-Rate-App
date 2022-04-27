@@ -2,6 +2,12 @@ package com.kmz07.currencyexchange.api
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.kmz07.currencyexchange.ui.calculator.CalculatorFragment
+import com.kmz07.currencyexchange.ui.exchange.ExchangeFragment
+import com.kmz07.currencyexchange.ui.login.LoginFragment
+import com.kmz07.currencyexchange.ui.register.RegisterFragment
+import com.kmz07.currencyexchange.ui.statistics.StatisticsFragment
+import com.kmz07.currencyexchange.ui.transactions.TransactionsFragment
 
 object Authentication {
     private var token: String? = null

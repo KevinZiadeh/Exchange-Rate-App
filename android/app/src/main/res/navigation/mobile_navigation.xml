@@ -41,4 +41,10 @@
         android:label="@string/my_transactions"
         tools:layout="@layout/fragment_transactions" />
 
+    <fragment
+        android:id="@+id/nav_exchangeUser"
+        android:name="com.kmz07.currencyexchange.ui.exchange_user.ExchangeUserFragment"
+        android:label="@string/exchange_with_user"
+        tools:layout="@layout/fragment_exchange_user" />
+
 </navigation>

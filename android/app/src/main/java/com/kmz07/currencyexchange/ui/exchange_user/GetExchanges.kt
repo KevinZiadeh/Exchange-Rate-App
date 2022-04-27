@@ -1,4 +1,4 @@
-package com.kmz07.currencyexchange.ui.transactions
+package com.kmz07.currencyexchange.ui.exchange_user
 
 import android.os.Bundle
 import android.util.Log
@@ -10,23 +10,27 @@ import android.widget.ListView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
+import com.google.gson.Gson
 import com.google.gson.internal.LinkedTreeMap
 import com.kmz07.currencyexchange.R
 import com.kmz07.currencyexchange.api.Authentication
 import com.kmz07.currencyexchange.api.ExchangeService
 import com.kmz07.currencyexchange.api.model.Transaction
-import com.kmz07.currencyexchange.databinding.FragmentTransactionsBinding
+import com.kmz07.currencyexchange.api.model.UserExchanges
+import com.kmz07.currencyexchange.databinding.FragmentGetExchangesBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 
-class TransactionsFragment : Fragment() {
+class GetExchanges : Fragment() {
 
-    private var _binding: FragmentTransactionsBinding? = null
+    private var _binding: FragmentGetExchangesBinding? = null
     private var listview: ListView? = null
-    private var transactions: ArrayList<Transaction>? = ArrayList()
-    private var adapter: TransactionAdapter? = null
+    private var exchangesG: ArrayList<Transaction>? = ArrayList()
+    private var exchangesR: ArrayList<Transaction>? = ArrayList()
+    private var adapterG: ExchangesAdapter? = null
+    private var adapterR: ExchangesAdapter? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -37,50 +41,58 @@ class TransactionsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentTransactionsBinding.inflate(inflater, container, false)
+        _binding = FragmentGetExchangesBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        fetchTransactions()
+        fetchExchanges()
 
-        listview = binding.listview
-        adapter =
-            TransactionAdapter(layoutInflater, transactions!!)
-        listview?.adapter = adapter
+        listview = binding.listviewG
+        adapterG =
+            ExchangesAdapter(layoutInflater, exchangesG!!)
+        listview?.adapter = adapterG
+
+        listview = binding.listviewR
+        adapterR =
+            ExchangesAdapter(layoutInflater, exchangesR!!)
+        listview?.adapter = adapterR
 
         return root
     }
 
-    private fun fetchTransactions() {
+    private fun fetchExchanges() {
         if (Authentication.getToken() != null) {
             ExchangeService.exchangeApi()
-                .getTransactions("Bearer ${Authentication.getToken()}")
-                .enqueue(object : Callback<List<Transaction>> {
+                .getExchangeUser("Bearer ${Authentication.getToken()}")
+                .enqueue(object : Callback<UserExchanges> {
                     override fun onFailure(
-                        call: Call<List<Transaction>>,
+                        call: Call<UserExchanges>,
                         t: Throwable
                     ) {
-                        Log.d("mytag", t.stackTraceToString())
                         Snackbar.make(
                             view as View,
-                            "Fetching Transactions Failed.",
+                            "Fetching Exchanges Failed.",
                             Snackbar.LENGTH_LONG
                         )
                             .show()
                     }
 
                     override fun onResponse(
-                        call: Call<List<Transaction>>,
-                        response: Response<List<Transaction>>
+                        call: Call<UserExchanges>,
+                        response: Response<UserExchanges>
                     ) {
-                        transactions?.clear()
-                        transactions?.addAll(response.body()!!)
+                        exchangesG?.clear()
+                        exchangesR?.clear()
 
-                        adapter!!.notifyDataSetChanged()
+                        exchangesG?.addAll(response.body()!!.giveList!!)
+                        exchangesR?.addAll(response.body()!!.receiveList!!)
+
+                        adapterG!!.notifyDataSetChanged()
+                        adapterR!!.notifyDataSetChanged()
                     }
                 })
         }
     }
 
-    class TransactionAdapter(
+    class ExchangesAdapter(
         private val inflater: LayoutInflater,
         private val dataSource: List<Transaction>
     ) : BaseAdapter() {
@@ -89,10 +101,13 @@ class TransactionsFragment : Fragment() {
             ViewGroup?
         ): View {
             val view: View = inflater.inflate(
-                R.layout.item_transaction,
+                R.layout.item_exchanges,
                 parent, false
             )
 
+            view.findViewById<TextView>(R.id.receiverName).text =
+                dataSource[position].receiverId.toString()
+//                dataSource[position].receiverUsername.toString()
             view.findViewById<TextView>(R.id.usdAmount).text =
                 dataSource[position].usdAmount.toString()
             view.findViewById<TextView>(R.id.lbpAmount).text =

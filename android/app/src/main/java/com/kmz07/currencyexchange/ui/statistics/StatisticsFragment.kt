@@ -19,6 +19,7 @@ import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.ValueFormatter
 import com.google.android.material.snackbar.Snackbar
 import com.kmz07.currencyexchange.R
+import com.kmz07.currencyexchange.api.Authentication
 import com.kmz07.currencyexchange.api.ExchangeService
 import com.kmz07.currencyexchange.api.model.Graph
 import com.kmz07.currencyexchange.api.model.Statistics
@@ -175,7 +176,6 @@ class StatisticsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         getGraph()
         getStats()
         _binding = FragmentStatisticsBinding.inflate(inflater, container, false)

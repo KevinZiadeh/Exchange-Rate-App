@@ -2,7 +2,6 @@ package com.kmz07.currencyexchange
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
@@ -64,7 +63,7 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_exchange, R.id.nav_calculator, R.id.nav_statistics, R.id.nav_login,
-                R.id.nav_register, R.id.nav_transactions, R.id.nav_logout
+                R.id.nav_register, R.id.nav_transactions, R.id.nav_exchangeUser, R.id.nav_logout
             ), drawerLayout
         )
 
@@ -85,7 +84,7 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_exchange, R.id.nav_calculator, R.id.nav_statistics, R.id.nav_login,
-                R.id.nav_register, R.id.nav_transactions, R.id.nav_logout
+                R.id.nav_register, R.id.nav_transactions, R.id.nav_exchangeUser, R.id.nav_logout
             ), drawerLayout
         )
         navController?.let { setupActionBarWithNavController(it, appBarConfiguration) }
@@ -97,7 +96,7 @@ class MainActivity : AppCompatActivity() {
         this.menu = navView?.menu
         setMenu()
         if(Authentication.getToken() != null) {
-            navView!!.menu.get(4).setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener {
+            navView!!.menu[5].setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener {
                 Authentication.clearToken()
                 onCompleted()
                 true
