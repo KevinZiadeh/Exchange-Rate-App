@@ -60,7 +60,8 @@ public class Rates {
                 Float.parseFloat(usdTextField.getText()),
                 Float.parseFloat(lbpTextField.getText()),
                 ((RadioButton)
-                        transactionType.getSelectedToggle()).getText().equals("Sell USD")
+                        transactionType.getSelectedToggle()).getText().equals("Sell USD"),
+                null
         );
 
         String userToken = Authentication.getInstance().getToken();

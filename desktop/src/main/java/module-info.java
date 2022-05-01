@@ -18,5 +18,9 @@ module com.youssef12347.exchange {
         opens com.youssef12347.exchange.register to javafx.fxml;
  opens com.youssef12347.exchange.transactions to javafx.fxml;
     opens com.youssef12347.exchange.statistics to javafx.fxml;
+    opens com.youssef12347.exchange.interaction to javafx.fxml;
+    opens com.youssef12347.exchange.myexchanges to javafx.fxml;
+
+
 
 }

@@ -12,12 +12,17 @@ public class Transaction {
     Integer id;
     @SerializedName("added_date")
     String addedDate;
+    @SerializedName("receiver_id")
+    Integer receiverId;
+    @SerializedName("receiver_username")
+    String receiverUsername;
 
-    public Transaction(Float usdAmount, Float lbpAmount, Boolean usdToLbp)
+    public Transaction(Float usdAmount, Float lbpAmount, Boolean usdToLbp, String receiverUsername)
     {
         this.usdAmount = usdAmount;
         this.lbpAmount = lbpAmount;
         this.usdToLbp = usdToLbp;
+        this.receiverUsername = receiverUsername;
     }
 
     public Float getUsdAmount() {
@@ -38,5 +43,14 @@ public class Transaction {
 
     public String getAddedDate() {
         return addedDate;
+    }
+
+
+    public Integer getReceiverId() {
+        return receiverId;
+    }
+
+    public String getReceiverUsername() {
+        return receiverUsername;
     }
 }
