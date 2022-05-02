@@ -43,7 +43,7 @@ It contains 2 models:
         * lbp_amount:float, non-nullable 
         * usd_to_lbp: boolean, non-nullable 
         * added_date: Datetime 
-        * user_id: integer, foreign key(user.id), nullable 
+        * user_name: string(30), foreign key(user.user_name), nullable
         * receiver_name: string(30), foreign key(user.user_name), nullable
         * sender_name:  string(30), foreign key(user.user_name), nullable
 
