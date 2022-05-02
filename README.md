@@ -21,11 +21,15 @@ Check the USD and LBP exchange rates. These rates are calculated based on the tr
 #### Exchange Rate Calculator
 Convert an  amount of a given currency to the other using the exchange rate found in Exchange Rates.
 #### Recording a Transaction
-Add a transaction, specifying the USD amount, LBP amount, and direction of exchange (USD to LBP, or vice-versa). These transactions can be added anonymously (without having a account), or can be done while logged it, which leads to the transaction being associated with the user.
+Add a transaction, specifying the USD amount, LBP amount, and direction of exchange (USD to LBP, or vice-versa). These transactions can be added anonymously (without having an account), or can be done while logged it, which leads to the transaction being associated with the user.
 #### User Accounts
 Login or Signup, which allows you to add transactions associated with the user account and check all the previous transactions that the user did. 
 #### Statistics
-
+Provide users with statistics and insights (predictions) of the exchange rate for the transactions registered for 10 days
+#### Graphs
+Returns the moving average exchange rate (of the past 10 days) for each day during 10 days
+#### Exchange with  User
+Add a new transaction between the user logged in and another user
 
 ## Requirements
 To be able to run the application on any platform, you need to 
