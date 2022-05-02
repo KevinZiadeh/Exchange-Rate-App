@@ -113,7 +113,7 @@ def stats():
   stat['predicted_lbp_to_usd'] = "not available"
 
 
-  return jsonify(stat)
+ return jsonify(stat)
 
 
 
