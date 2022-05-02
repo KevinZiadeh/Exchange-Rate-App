@@ -102,7 +102,7 @@ def stats():
 
 
 @app_rate.route('/graph', methods=['GET'])
-def graph_usd_to_lbp():
+def graph():
  """ Returns the moving average exchange rate (of the past 10 days) for each day during 10 days
     ---
     responses:
