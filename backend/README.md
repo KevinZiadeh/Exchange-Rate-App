@@ -1,17 +1,32 @@
 # Backend
-Backend done using Flask and MySQL
+> Backend done using Flask and MySQL
+
+## Requirements
+- Python 3.7+
+- MySQL Installed
+
 
 ## How to set it up
-1. Clone the repo by creating a folder, opening the cmd and chage directory to this folder. Write "git clone https://github.com/KevinZiadeh/Exchange-Rate-App.git" then cd backend
-2. Create a new environment by using: "py -3 -m venv venv", then activate it using "venv\Scripts\activate"
-3. Execute "pip install -r requirements.txt", which will use pip to install all the dependencies specified in requirements.txt file
-4. Create/Edit db_config.py so it holds your credentials on MYSQL:
-    Write in it: "DB_CONFIG='mysql+pymysql://<mysql_username>:<mysql_password>@<mysql_host>:<mysql_port>/<mysql_db_name>'"
-5. Using python shell within the virtual environment, to initialize the database and create the needed databases, write:
-   1. from app import db
-   2. db.create_all()
-   3. exit()
-6. To run the application, write: "python run.py"
+1. Clone the repo
+2. Create a new environment where we will download all our required libraries
+3. Use pip to install all the dependencies specified in requirements.txt file
+```
+git clone https://github.com/KevinZiadeh/Exchange-Rate-App.git
+cd Exchange-Rate-App
+cd backend
+py -3 -m venv venv
+.\venv\Scripts\activate
+pip install -r requirements.txt
+```
+4. Create the `db_config.py` so it holds your credentials on MySQL:
+    Write in it: `DB_CONFIG='mysql+pymysql://<mysql_username>:<mysql_password>@<mysql_host>:<mysql_port>/<mysql_db_name>'`
+5. Initialize the database and create the needed databases using a python shell within the virtual environment using `python`:
+    ```python
+    from app import db
+    db.create_all()
+    exit()
+    ```
+6. Run the application using `python run.py`
 
 ## Database:
 It contains 2 models:
