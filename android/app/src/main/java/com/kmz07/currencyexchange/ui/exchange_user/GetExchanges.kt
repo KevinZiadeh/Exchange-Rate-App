@@ -47,12 +47,12 @@ class GetExchanges : Fragment() {
 
         listview = binding.listviewG
         adapterG =
-            ExchangesAdapter(layoutInflater, exchangesG!!)
+            ExchangesAdapter(layoutInflater, exchangesG!!, false)
         listview?.adapter = adapterG
 
         listview = binding.listviewR
         adapterR =
-            ExchangesAdapter(layoutInflater, exchangesR!!)
+            ExchangesAdapter(layoutInflater, exchangesR!!, true)
         listview?.adapter = adapterR
 
         return root
@@ -94,7 +94,8 @@ class GetExchanges : Fragment() {
 
     class ExchangesAdapter(
         private val inflater: LayoutInflater,
-        private val dataSource: List<Transaction>
+        private val dataSource: List<Transaction>,
+        private val receiving: Boolean
     ) : BaseAdapter() {
         override fun getView(
             position: Int, convertView: View?, parent:
@@ -105,9 +106,13 @@ class GetExchanges : Fragment() {
                 parent, false
             )
 
-            view.findViewById<TextView>(R.id.receiverName).text =
-                dataSource[position].receiverId.toString()
-//                dataSource[position].receiverUsername.toString()
+            if (receiving){
+            view.findViewById<TextView>(R.id.otherUserName).text =
+                dataSource[position].senderName.toString()
+            } else{
+                view.findViewById<TextView>(R.id.otherUserName).text =
+                    dataSource[position].receiverName.toString()
+            }
             view.findViewById<TextView>(R.id.usdAmount).text =
                 dataSource[position].usdAmount.toString()
             view.findViewById<TextView>(R.id.lbpAmount).text =

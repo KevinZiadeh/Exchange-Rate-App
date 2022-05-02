@@ -48,8 +48,8 @@ class DoExchange : Fragment() {
         val usdAmount = usdAmountRef?.editText?.text.toString();
         val lbpAmountRef = myview?.findViewById<TextInputLayout>(R.id.txtInputLbpAmount)
         val lbpAmount = lbpAmountRef?.editText?.text.toString();
-        val receiverUsernameRef = myview?.findViewById<TextInputLayout>(R.id.txtInputReceiverName)
-        val receiverUsername = receiverUsernameRef?.editText?.text.toString();
+        val receiverNameRef = myview?.findViewById<TextInputLayout>(R.id.txtInputReceiverName)
+        val receiverName = receiverNameRef?.editText?.text.toString();
 
         val usdToLbp = myview?.findViewById<RadioButton>(R.id.rdBtnSellUsd)?.isChecked() == true
         val lbpToUbp = myview?.findViewById<RadioButton>(R.id.rdBtnBuyUsd)?.isChecked() == true
@@ -57,7 +57,7 @@ class DoExchange : Fragment() {
             val transaction = Transaction();
             transaction.lbpAmount = lbpAmount.toFloat();
             transaction.usdAmount = usdAmount.toFloat();
-            transaction.receiverUsername = receiverUsername
+            transaction.receiverName = receiverName
             if (!usdToLbp && !lbpToUbp) {
                 throw Exception();
             }
@@ -65,8 +65,8 @@ class DoExchange : Fragment() {
             addUserTransaction(transaction);
             usdAmountRef?.editText?.setText("")
             lbpAmountRef?.editText?.setText("")
-            receiverUsernameRef?.editText?.setText("")
-            receiverUsernameRef?.editText?.clearFocus()
+            receiverNameRef?.editText?.setText("")
+            receiverNameRef?.editText?.clearFocus()
 
         } catch (e: Exception) {
             Snackbar.make(
