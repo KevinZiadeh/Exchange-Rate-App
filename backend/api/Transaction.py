@@ -72,7 +72,7 @@ def transaction():
     db.session.add(newTransaction)
     db.session.commit()
     return jsonify(transaction_schema.dump(newTransaction))
- return "Invalid Input"
+ abort(400)
 
 @app_transaction.route('/transaction', methods=['GET'])
 def getTransactions():
@@ -99,7 +99,7 @@ def getTransactions():
       return jsonify(transactions_schema.dump(transs))
    except:
       abort(403)
- return "no token"
+ abort(400)
 
 
 @app_transaction.route('/exchangeuser', methods=['POST'])
@@ -166,10 +166,11 @@ def exchangeuser():
  try:
     receiver_id = User.query.filter_by(user_name = receiver_name).all()[0].id
  except:
-     return "invalid user to give"
+     abort(400)
+         #"invalid user to give"
 
  if receiver_id==user_id:
-     return "can't exchange with yourself"
+     abort(400) #"can't exchange with yourself"
  if (usd_amount is not None) and (usd_amount!= 0) and (lbp_amount is not None) and (lbp_amount!=0) and (usd_to_lbp is not None) :
     newTransaction = Transaction(
        usd_amount = usd_amount,
@@ -183,7 +184,7 @@ def exchangeuser():
 
     return jsonify(transaction_schema.dump(newTransaction))
 
- return "Invalid Input"
+ abort(400)
 
 @app_transaction.route('/exchangeuser', methods=['GET'])
 def getexchangeuser():
@@ -217,4 +218,4 @@ def getexchangeuser():
       return jsonify((d))
    except:
       abort(403)
- return "no token"
+ abort(400)
