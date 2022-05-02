@@ -59,13 +59,14 @@ def transaction():
    except:
       abort(403)
 
+ user_name = User.query.filter_by(id=user_id).all()[0].user_name
  if (usd_amount is not None) and (usd_amount!= 0) and (lbp_amount is not None) and (lbp_amount!=0) and (usd_to_lbp is not None):
 
     newTransaction = Transaction(
        usd_amount = usd_amount,
        lbp_amount = lbp_amount,
        usd_to_lbp = usd_to_lbp,
-       user_id = user_id,
+       user_name = user_name,
        receiver_name = None,
        sender_name=None
     )
@@ -96,7 +97,8 @@ def getTransactions():
  if(token):
    try :
       user_id = decode_token(token)
-      transs= Transaction.query.filter_by(user_id=user_id)
+      user_name = User.query.filter_by(id=user_id).all()[0].user_name
+      transs= Transaction.query.filter_by(user_name=user_name)
       return jsonify(transactions_schema.dump(transs))
    except:
       abort(403)
@@ -176,12 +178,15 @@ def exchangeuser():
 
  if receiver_id==user_id:
      abort(400) #"can't exchange with yourself"
+
+ user_name = User.query.filter_by(id=user_id).all()[0].user_name
+
  if (usd_amount is not None) and (usd_amount!= 0) and (lbp_amount is not None) and (lbp_amount!=0) and (usd_to_lbp is not None) :
     newTransaction = Transaction(
        usd_amount = usd_amount,
        lbp_amount = lbp_amount,
        usd_to_lbp = usd_to_lbp,
-       user_id = user_id,
+       user_name = user_name,
        receiver_name = receiver_name,
        sender_name=sender_name
     )
@@ -214,10 +219,10 @@ def getexchangeuser():
  if(token):
    try :
       user_id = decode_token(token)
+      user_name = User.query.filter_by(id=user_id).all()[0].user_name
 
-      give= Transaction.query.filter((Transaction.user_id==user_id) & (Transaction.receiver_name != None))
+      give= Transaction.query.filter((Transaction.user_name==user_name) & (Transaction.receiver_name != None))
       #print(give)
-      user_name=User.query.filter_by(id = user_id).all()[0].user_name
       receive = Transaction.query.filter_by(receiver_name=user_name)
       d = {}
       d['give'] = transactions_schema.dump(give)
