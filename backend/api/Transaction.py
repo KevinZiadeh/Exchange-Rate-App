@@ -66,7 +66,8 @@ def transaction():
        lbp_amount = lbp_amount,
        usd_to_lbp = usd_to_lbp,
        user_id = user_id,
-       receiver_name = None
+       receiver_name = None,
+       sender_name=None
     )
 
     db.session.add(newTransaction)
@@ -142,6 +143,7 @@ def exchangeuser():
             description: token wrong
         """
  try:
+
      usd_amount= request.json["usd_amount"]
      lbp_amount = request.json["lbp_amount"]
      usd_to_lbp = request.json["usd_to_lbp"]
@@ -165,6 +167,9 @@ def exchangeuser():
 
  try:
     receiver_id = User.query.filter_by(user_name = receiver_name).all()[0].id
+
+    sender_name= User.query.filter_by(id = user_id).all()[0].user_name
+
  except:
      abort(400)
          #"invalid user to give"
@@ -177,8 +182,10 @@ def exchangeuser():
        lbp_amount = lbp_amount,
        usd_to_lbp = usd_to_lbp,
        user_id = user_id,
-       receiver_name = receiver_name
+       receiver_name = receiver_name,
+       sender_name=sender_name
     )
+
     db.session.add(newTransaction)
     db.session.commit()
 
