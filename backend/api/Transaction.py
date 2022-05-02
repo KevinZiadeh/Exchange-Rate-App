@@ -99,7 +99,7 @@ def getTransactions():
       return jsonify(transactions_schema.dump(transs))
    except:
       abort(403)
- abort(400)
+ abort(403)
 
 
 @app_transaction.route('/exchangeuser', methods=['POST'])
@@ -218,4 +218,4 @@ def getexchangeuser():
       return jsonify((d))
    except:
       abort(403)
- abort(400)
+ abort(403)
