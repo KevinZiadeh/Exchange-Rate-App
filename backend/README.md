@@ -45,7 +45,6 @@ It contains 2 models:
         * added_date: Datetime 
         * user_name: string(30), foreign key(user.user_name), nullable
         * receiver_name: string(30), foreign key(user.user_name), nullable
-        * sender_name:  string(30), foreign key(user.user_name), nullable
 
 ## Architecture:
 The APIs are all found in the folder API divided into three files: ExchangeRate.py, Transaction.py and User.py
