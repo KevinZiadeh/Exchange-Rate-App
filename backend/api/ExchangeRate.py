@@ -11,8 +11,14 @@ app_rate = Blueprint('app_rate', __name__)
 #added number of days as an input
 @app_rate.route('/exchangeRate', methods=['GET'])
 def exchangeRate():
+ """ Returns the average exchange rates (USD to LBP and LBP to USD) of the last 10 days .
+       ---
+       responses:
+         200:
+           description:  It returns the exchange rate of both usd_to_lbp and lbp_to_usd of the last 10 days.
+ """
  #added as argument the num of days
- START_DATE= datetime.datetime.now() - datetime.timedelta(days=20)
+ START_DATE= datetime.datetime.now() - datetime.timedelta(days=10)
  END_DATE=datetime.datetime.now()
  usd_to_lbp=Transaction.query.filter(Transaction.added_date.between(START_DATE, END_DATE),Transaction.usd_to_lbp == True).all()
  lbp_to_usd = Transaction.query.filter(Transaction.added_date.between(START_DATE, END_DATE),Transaction.usd_to_lbp == False).all()
@@ -42,7 +48,15 @@ def exchangeRate():
 #NEW: Stat +prediction
 @app_rate.route('/statistics', methods=['GET'])
 def stats():
- START_DATE = datetime.datetime.now() - datetime.timedelta(days=30)
+ """  Provide users with statistics and insights (predictions) of the exchange rate for the transactions registered for 10 days.
+     ---
+     responses:
+       200:
+          description: Returns json file of Maximum, Minimum, Median, Mode, and Standard deviation of the exchange rates (usd to lbp and lbp to usd).
+
+     """
+
+ START_DATE = datetime.datetime.now() - datetime.timedelta(days=10)
  END_DATE = datetime.datetime.now()
  usd_to_lbp = Transaction.query.filter(Transaction.added_date.between(START_DATE, END_DATE),
                                        Transaction.usd_to_lbp == True).all()
@@ -78,7 +92,7 @@ def stats():
   stat['mode_usd_to_lbp'] = mode(rates_usd_to_lbp)
   stat['std_usd_to_lbp'] = stdev(rates_usd_to_lbp)
 
-  #insights/predicting the next rate given all rates of the time lapse given
+  #insights/predicting the next rate given all rates of the 10 last days
   future_usd_to_lbp=PredictFutureRate(rates_usd_to_lbp)
   future_lbp_to_usd = PredictFutureRate(rates_lbp_to_usd)
   stat['predicted_usd_to_lbp']=future_usd_to_lbp
@@ -89,6 +103,12 @@ def stats():
 
 @app_rate.route('/graph', methods=['GET'])
 def graph_usd_to_lbp():
+ """ Returns the moving average exchange rate (of the past 10 days) for each day during 10 days
+    ---
+    responses:
+      200:
+        description: A json containing the moving average rate of lbp to usd, usd to lbp each of the 10days
+    """
  START_DATE = datetime.datetime.now() - datetime.timedelta(days=20)
  END_DATE = datetime.datetime.now()
 
@@ -101,15 +121,16 @@ def graph_usd_to_lbp():
  mean_rate_lbp_to_usd=[]
  mean_rate_usd_to_lbp = []
  for i in range(9,-1,-1):
-  date.append((datetime.datetime.now() - datetime.timedelta(days=i)).strftime("%d %b %Y"))
+  date.append((datetime.datetime.now() - datetime.timedelta(days=i)).strftime("%Y %b %d"))
   rates_lbp_to_usd = []
   rates_usd_to_lbp = []
+
   for trans in usd_to_lbp:
-    if (trans.added_date.strftime("%d %b %Y") <= (datetime.datetime.now() - datetime.timedelta(days=i)).strftime("%d %b %Y")) and (trans.added_date - (datetime.datetime.now() - datetime.timedelta(days=i))).days >= -10:
+    if (trans.added_date.strftime("%Y %b %d") <= (datetime.datetime.now() - datetime.timedelta(days=i)).strftime("%Y %b %d")) and (trans.added_date - (datetime.datetime.now() - datetime.timedelta(days=i))).days >= -10:
      rates_usd_to_lbp.append(trans.lbp_amount / trans.usd_amount)
 
   for trans in lbp_to_usd:
-    if (trans.added_date.strftime("%d %b %Y") <= (datetime.datetime.now() - datetime.timedelta(days=i)).strftime("%d %b %Y")) and (trans.added_date - (datetime.datetime.now() - datetime.timedelta(days=i))).days >= -10:
+    if (trans.added_date.strftime("%Y %b %d") <= (datetime.datetime.now() - datetime.timedelta(days=i)).strftime("%Y %b %d")) and (trans.added_date - (datetime.datetime.now() - datetime.timedelta(days=i))).days >= -10:
      rates_lbp_to_usd.append(trans.lbp_amount / trans.usd_amount)
 
   if len(rates_lbp_to_usd)>0:
@@ -118,6 +139,7 @@ def graph_usd_to_lbp():
    mean_rate_lbp_to_usd.append(-1)
 
   if len(rates_usd_to_lbp) > 0:
+   print(rates_usd_to_lbp)
    mean_rate_usd_to_lbp.append(mean(rates_usd_to_lbp))
   else:
    mean_rate_usd_to_lbp.append(-1)

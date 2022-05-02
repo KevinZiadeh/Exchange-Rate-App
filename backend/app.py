@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 from flask_bcrypt import Bcrypt
 from flask_cors import CORS
+from flasgger import Swagger
 
 
 ## Creating app
@@ -14,6 +15,8 @@ ma = Marshmallow(app)
 bcrypt = Bcrypt(app)
 CORS(app)
 ## app created
+
+swagger = Swagger(app)
 
 from api.User import app_user
 app.register_blueprint(app_user)

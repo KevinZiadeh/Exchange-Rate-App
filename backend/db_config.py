@@ -1,1 +1,1 @@
-DB_CONFIG = 'mysql+pymysql://root:C0rner!12347@localhost:3306/exchange'
+DB_CONFIG='mysql+pymysql://root:rootroot@127.0.0.1:3306/exchange'
