@@ -19,7 +19,7 @@ class Transaction() {
     var id: Int? = null
     @SerializedName("receiver_name")
     var receiverName: String? = null
-    @SerializedName("sender_name")
+    @SerializedName("user_name")
     var senderName: String? = null
 
 }
