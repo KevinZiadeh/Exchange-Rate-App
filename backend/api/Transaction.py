@@ -67,8 +67,8 @@ def transaction():
        lbp_amount = lbp_amount,
        usd_to_lbp = usd_to_lbp,
        user_name = user_name,
-       receiver_name = None,
-       sender_name=None
+       receiver_name = None
+
     )
 
     db.session.add(newTransaction)
@@ -170,7 +170,6 @@ def exchangeuser():
  try:
     receiver_id = User.query.filter_by(user_name = receiver_name).all()[0].id
 
-    sender_name= User.query.filter_by(id = user_id).all()[0].user_name
 
  except:
      abort(400)
@@ -187,8 +186,8 @@ def exchangeuser():
        lbp_amount = lbp_amount,
        usd_to_lbp = usd_to_lbp,
        user_name = user_name,
-       receiver_name = receiver_name,
-       sender_name=sender_name
+       receiver_name = receiver_name
+
     )
 
     db.session.add(newTransaction)
