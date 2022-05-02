@@ -19,6 +19,12 @@
             <Button fx:id="statisticsButton" styleClass="nav-button"
                     text="Statistics"
                     onAction="#statsSelected"/>
+            <Button fx:id="exchangesButton" styleClass="nav-button"
+                    text="User Interactions"
+                    onAction="#exchangesSelected"/>
+            <Button fx:id="myexchangesButton" styleClass="nav-button"
+                    text="My Exchanges"
+                    onAction="#myexchangesSelected"/>
             <Button fx:id="loginButton" styleClass="nav-button"
                     text="Login" onAction="#loginSelected"/>
             <Button fx:id="registerButton" styleClass="nav-button"

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.Button?>
+<GridPane fx:controller="com.youssef12347.exchange.interaction.Interaction"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10"
+          vgap="10" prefHeight="475.0" prefWidth="600.0" stylesheets="@exchanges.css" styleClass="root">
+    <Label text="User Interactions"
+           textAlignment="CENTER" GridPane.columnSpan="2"
+           GridPane.halignment="CENTER" styleClass="header"
+    />
+
+
+    <Label fx:id="usd1TextFieldLabel" text="Enter USD"
+           GridPane.columnIndex="0" GridPane.rowIndex="8" styleClass="value-label"/>
+    <TextField fx:id="usd1TextField" styleClass="value" GridPane.columnIndex="1" GridPane.rowIndex="8">
+    </TextField>
+    <Label fx:id="lbp1TextFieldLabel" text="Enter LBP"
+           GridPane.columnIndex="0" GridPane.rowIndex="9" styleClass="value-label"/>
+    <TextField fx:id="lbp1TextField" styleClass="value" GridPane.columnIndex="1" GridPane.rowIndex="9">
+    </TextField>
+
+    <Label fx:id="nameTextFieldLabel" text="Enter Receiver Name"
+           GridPane.columnIndex="0" GridPane.rowIndex="10" styleClass="value-label"/>
+    <TextField fx:id="nameTextField" styleClass="value" GridPane.columnIndex="1" GridPane.rowIndex="10">
+    </TextField>
+
+    <RadioButton text="Buy USD" GridPane.columnIndex="0" GridPane.rowIndex="11">
+        <toggleGroup>
+            <ToggleGroup fx:id="transactionType1"/>
+        </toggleGroup>
+    </RadioButton>
+    <RadioButton text="Sell USD"  GridPane.columnIndex="1" GridPane.rowIndex="11" toggleGroup="$transactionType1"/>
+    <Button text="Add Exchange" GridPane.columnIndex="2" GridPane.rowIndex="11" onAction="#addexchange"/>
+
+    <Separator orientation="HORIZONTAL" GridPane.RowIndex="6"
+               GridPane.columnIndex="0" GridPane.columnSpan="2" />
+
+
+
+</GridPane>

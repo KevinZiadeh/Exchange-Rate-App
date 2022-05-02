@@ -26,4 +26,10 @@ public interface Exchange {
     @GET("/transaction")
     Call<List<Transaction>> getTransactions(@Header("Authorization")
                                                     String authorization);
+    @POST("/exchangeuser")
+    Call<Object> addexchange(@Body Transaction transaction,
+                                @Header("Authorization") String authorization);
+    @GET("/exchangeuser")
+    Call<Interactions> getInteractions(@Header("Authorization")
+                                                    String authorization);
 }

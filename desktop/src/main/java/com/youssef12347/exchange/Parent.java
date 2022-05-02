@@ -12,7 +12,9 @@ import java.util.ResourceBundle;
 public class Parent implements Initializable, OnPageCompleteListener{
     public BorderPane borderPane;
     public Button transactionButton;
+    public Button myexchangesButton;
     public Button statisticsButton;
+    public Button exchangesButton;
     public Button loginButton;
     public Button registerButton;
     public Button logoutButton;
@@ -26,6 +28,12 @@ public class Parent implements Initializable, OnPageCompleteListener{
     }
     public void statsSelected() {
         swapContent(Section.STATS);
+    }
+    public void exchangesSelected() {
+        swapContent(Section.EXCHANGES);
+    }
+    public void myexchangesSelected() {
+        swapContent(Section.MYEXCHANGES);
     }
     public void transactionsSelected() {
         swapContent(Section.TRANSACTIONS);
@@ -62,6 +70,10 @@ public class Parent implements Initializable, OnPageCompleteListener{
         transactionButton.setVisible(authenticated);
         statisticsButton.setManaged(authenticated);
         statisticsButton.setVisible(authenticated);
+        exchangesButton.setManaged(authenticated);
+        exchangesButton.setVisible(authenticated);
+        myexchangesButton.setManaged(authenticated);
+        myexchangesButton.setVisible(authenticated);
         loginButton.setManaged(!authenticated);
         loginButton.setVisible(!authenticated);
         registerButton.setManaged(!authenticated);
@@ -78,6 +90,8 @@ public class Parent implements Initializable, OnPageCompleteListener{
     private enum Section {
         RATES,
         STATS,
+        EXCHANGES,
+        MYEXCHANGES,
         TRANSACTIONS,
         LOGIN,
         REGISTER;
@@ -87,6 +101,10 @@ public class Parent implements Initializable, OnPageCompleteListener{
                         "/com/youssef12347/exchange/rates/rates.fxml";
                 case STATS ->
                         "/com/youssef12347/exchange/stats/stats.fxml";
+                case EXCHANGES ->
+                        "/com/youssef12347/exchange/exchanges/exchanges.fxml";
+                case MYEXCHANGES ->
+                        "/com/youssef12347/exchange/myexchanges/myexchanges.fxml";
                 case TRANSACTIONS ->
                         "/com/youssef12347/exchange/transactions/transactions.fxml";
                 case LOGIN ->
