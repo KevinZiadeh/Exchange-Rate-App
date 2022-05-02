@@ -1,7 +1,7 @@
-#Backend
+# Backend
 Backend done using Flask and MySQL
 
-##How to set it up
+## How to set it up
 1. Clone the repo by creating a folder, opening the cmd and chage directory to this folder. Write "git clone https://github.com/KevinZiadeh/Exchange-Rate-App.git" then cd backend
 2. Create a new environment by using: "py -3 -m venv venv", then activate it using "venv\Scripts\activate"
 3. Execute "pip install -r requirements.txt", which will use pip to install all the dependencies specified in requirements.txt file
@@ -13,7 +13,7 @@ Backend done using Flask and MySQL
    3. exit()
 6. To run the application, write: "python run.py"
 
-##Database:
+## Database:
 It contains 2 models:
 1. User:
    * Attributes:
@@ -31,7 +31,7 @@ It contains 2 models:
         * user_id: integer, foreign key(user.id), nullable 
         * receiver_name: string(30), foreign key(user.user_name), nullable
 
-##Architecture:
+## Architecture:
 The APIs are all found in the folder API divided into three files: ExchangeRate.py, Transaction.py and User.py
 They are linked to two models: user and transaction which are in the database
 
@@ -39,7 +39,7 @@ They are linked to two models: user and transaction which are in the database
   <img src="Architecture_backend.PNG"  width="300" height="400" alt="background architecture"/>
 </p>
 
-##Documentation:
+## Documentation:
 We used Swagger for api's documentation:
 Run the application, and enter "http://localhost:5000/apidocs/#/", you should see this doc:
 
