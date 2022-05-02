@@ -46,6 +46,7 @@ def transaction():
      lbp_amount = request.json["lbp_amount"]
      usd_to_lbp = request.json["usd_to_lbp"]
      user_id=None
+     user_name=None
  except:
      abort(400)
 
@@ -56,10 +57,11 @@ def transaction():
  if(token):
    try :
       user_id = decode_token(token)
+      user_name = User.query.filter_by(id=user_id).all()[0].user_name
    except:
       abort(403)
 
- user_name = User.query.filter_by(id=user_id).all()[0].user_name
+
  if (usd_amount is not None) and (usd_amount!= 0) and (lbp_amount is not None) and (lbp_amount!=0) and (usd_to_lbp is not None):
 
     newTransaction = Transaction(

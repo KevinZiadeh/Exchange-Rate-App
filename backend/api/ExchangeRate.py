@@ -78,27 +78,43 @@ def stats():
 
  #now some statistics:
  stat={}
- if (len(rates_lbp_to_usd)>0) and(len(rates_usd_to_lbp)>0) :
+ if (len(rates_lbp_to_usd)>0)  :
   stat['max_lbp_to_usd']=max(rates_lbp_to_usd)
   stat['min_lbp_to_usd'] = min(rates_lbp_to_usd)
   stat['median_lbp_to_usd'] = median(rates_lbp_to_usd)
   stat['mode_lbp_to_usd'] = mode(rates_lbp_to_usd)
   stat['std_lbp_to_usd'] = stdev(rates_lbp_to_usd)
+  future_lbp_to_usd = PredictFutureRate(rates_lbp_to_usd)
+  stat['predicted_lbp_to_usd'] = future_lbp_to_usd
 
-
+ if (len(rates_usd_to_lbp)>0):
   stat['max_usd_to_lbp'] = max(rates_usd_to_lbp)
   stat['min_usd_to_lbp'] = min(rates_usd_to_lbp)
   stat['median_usd_to_lbp'] = median(rates_usd_to_lbp)
   stat['mode_usd_to_lbp'] = mode(rates_usd_to_lbp)
   stat['std_usd_to_lbp'] = stdev(rates_usd_to_lbp)
-
-  #insights/predicting the next rate given all rates of the 10 last days
   future_usd_to_lbp=PredictFutureRate(rates_usd_to_lbp)
-  future_lbp_to_usd = PredictFutureRate(rates_lbp_to_usd)
   stat['predicted_usd_to_lbp']=future_usd_to_lbp
-  stat['predicted_lbp_to_usd']=future_lbp_to_usd
+
+ if (len(rates_usd_to_lbp)==0):
+  stat['max_usd_to_lbp'] = "not available"
+  stat['min_usd_to_lbp'] = "not available"
+  stat['median_usd_to_lbp'] = "not available"
+  stat['mode_usd_to_lbp'] = "not available"
+  stat['std_usd_to_lbp'] = "not available"
+  stat['predicted_usd_to_lbp'] = "not available"
+
+ if (len(rates_lbp_to_usd) == 0):
+  stat['max_lbp_to_usd'] = "not available"
+  stat['min_lbp_to_usd'] = "not available"
+  stat['median_lbp_to_usd'] = "not available"
+  stat['mode_lbp_to_usd'] = "not available"
+  stat['std_lbp_to_usd'] = "not available"
+  stat['predicted_lbp_to_usd'] = "not available"
+
 
   return jsonify(stat)
+
 
 
 @app_rate.route('/graph', methods=['GET'])
