@@ -1,11 +1,13 @@
 package com.kmz07.currencyexchange.ui.exchange_user
 
+import android.app.Activity
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.RadioButton
 import com.google.android.material.snackbar.Snackbar
@@ -22,6 +24,9 @@ import retrofit2.Response
 class DoExchange : Fragment() {
     private var myview: View? = null
     private var submitBtn: Button? = null
+    private var usdAmountRef: TextInputLayout? = null
+    private var lbpAmountRef: TextInputLayout? = null
+    private var receiverNameRef: TextInputLayout? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,6 +37,9 @@ class DoExchange : Fragment() {
             container, false
         )
 
+        usdAmountRef = myview?.findViewById(R.id.txtInputUsdAmount)
+        lbpAmountRef = myview?.findViewById(R.id.txtInputLbpAmount)
+        receiverNameRef = myview?.findViewById(R.id.txtInputReceiverName)
         submitBtn = myview?.findViewById(R.id.btnExchangeSubmit)
         submitBtn?.setOnClickListener { myview ->
             doTransaction()
@@ -44,11 +52,8 @@ class DoExchange : Fragment() {
             throw Exception("Exchanging without token")
         }
 
-        val usdAmountRef = myview?.findViewById<TextInputLayout>(R.id.txtInputUsdAmount)
         val usdAmount = usdAmountRef?.editText?.text.toString();
-        val lbpAmountRef = myview?.findViewById<TextInputLayout>(R.id.txtInputLbpAmount)
         val lbpAmount = lbpAmountRef?.editText?.text.toString();
-        val receiverNameRef = myview?.findViewById<TextInputLayout>(R.id.txtInputReceiverName)
         val receiverName = receiverNameRef?.editText?.text.toString();
 
         val usdToLbp = myview?.findViewById<RadioButton>(R.id.rdBtnSellUsd)?.isChecked() == true
@@ -63,10 +68,6 @@ class DoExchange : Fragment() {
             }
             transaction.usdToLbp = usdToLbp;
             addUserTransaction(transaction);
-            usdAmountRef?.editText?.setText("")
-            lbpAmountRef?.editText?.setText("")
-            receiverNameRef?.editText?.setText("")
-            receiverNameRef?.editText?.clearFocus()
 
         } catch (e: Exception) {
             Snackbar.make(
@@ -87,11 +88,26 @@ class DoExchange : Fragment() {
                 call: Call<Any>, response:
                 Response<Any>
             ) {
-                Snackbar.make(
-                    myview as View, "Transaction added!",
-                    Snackbar.LENGTH_LONG
-                )
-                    .show()
+                if (response.code() != 200) {
+                    val imm: InputMethodManager =
+                        activity!!.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+                    imm.hideSoftInputFromWindow(view!!.windowToken, 0)
+                    Snackbar.make(
+                        myview as View, "Could not add transaction.",
+                        Snackbar.LENGTH_LONG
+                    )
+                        .show()
+                } else {
+                    Snackbar.make(
+                        myview as View, "Transaction added!",
+                        Snackbar.LENGTH_LONG
+                    )
+                        .show()
+                    usdAmountRef?.editText?.setText("")
+                    lbpAmountRef?.editText?.setText("")
+                    receiverNameRef?.editText?.setText("")
+                    receiverNameRef?.editText?.clearFocus()
+                }
             }
 
             override fun onFailure(call: Call<Any>, t: Throwable) {

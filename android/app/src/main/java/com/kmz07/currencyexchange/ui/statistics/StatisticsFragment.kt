@@ -142,6 +142,7 @@ class StatisticsFragment : Fragment() {
         rateChart.description.yOffset = -25F
         rateChart.description.textAlign = Paint.Align.CENTER
 
+
         val dataSet = LineDataSet(entries, "")
         dataSet.setDrawHighlightIndicators(false)
         dataSet.setDrawHorizontalHighlightIndicator(false)
@@ -150,7 +151,7 @@ class StatisticsFragment : Fragment() {
         dataSet.disableDashedHighlightLine()
         dataSet.setDrawFilled(true)
         dataSet.fillDrawable = this.context?.let { ContextCompat.getDrawable(it, R.drawable.gradient) }
-
+        dataSet.valueTextSize = 10f
 
         rateChart.axisRight.isEnabled = false
         rateChart.axisLeft.isEnabled = false
