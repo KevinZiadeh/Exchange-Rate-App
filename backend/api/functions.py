@@ -33,7 +33,7 @@ def decode_token(token):
 def PredictFutureRate(listRates):
  if len(listRates) < 1 :
   return None
- if len(listRates) < 4 :
+ if len(listRates) < 6 :
   return mean(listRates)
  else:
   series=pd.Series(listRates)
