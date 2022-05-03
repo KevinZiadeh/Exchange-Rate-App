@@ -32,7 +32,7 @@ public class MyExchanges implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         receiverUsername.setCellValueFactory(new
-                PropertyValueFactory<Transaction, Long>("receiverUsername"));
+                PropertyValueFactory<Transaction, String>("receiverName"));
         usdAmount.setCellValueFactory(new
                 PropertyValueFactory<Transaction, Long>("usdAmount"));
         lbpAmount.setCellValueFactory(new
@@ -43,7 +43,7 @@ public class MyExchanges implements Initializable {
                 PropertyValueFactory<Transaction, String>("addedDate"));
 
         receiverUsernameR.setCellValueFactory(new
-                PropertyValueFactory<Transaction, Long>("receiverUsername"));
+                PropertyValueFactory<Transaction, String>("userName"));
         usdAmountR.setCellValueFactory(new
                 PropertyValueFactory<Transaction, Long>("usdAmount"));
         lbpAmountR.setCellValueFactory(new

@@ -42,7 +42,7 @@
             GridPane.columnIndex="0"
             GridPane.rowIndex="9">
         <columns>
-            <TableColumn text="Receiver Name" fx:id="receiverUsernameR"
+            <TableColumn text="Sender Name" fx:id="receiverUsernameR"
                          prefWidth="150"/>
             <TableColumn text="USD Amount" fx:id="usdAmountR"
                          prefWidth="150"/>

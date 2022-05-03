@@ -1,6 +1,7 @@
 package com.youssef12347.exchange.api.model;
 
 import com.google.gson.annotations.SerializedName;
+
 public class Transaction {
     @SerializedName("usd_amount")
     Float usdAmount;
@@ -12,17 +13,16 @@ public class Transaction {
     Integer id;
     @SerializedName("added_date")
     String addedDate;
-    @SerializedName("receiver_id")
-    Integer receiverId;
-    @SerializedName("receiver_username")
-    String receiverUsername;
+    @SerializedName("user_name")
+    String userName;
+    @SerializedName("receiver_name")
+    String receiverName;
 
-    public Transaction(Float usdAmount, Float lbpAmount, Boolean usdToLbp, String receiverUsername)
-    {
+    public Transaction(Float usdAmount, Float lbpAmount, Boolean usdToLbp, String receiverName) {
         this.usdAmount = usdAmount;
         this.lbpAmount = lbpAmount;
         this.usdToLbp = usdToLbp;
-        this.receiverUsername = receiverUsername;
+        this.receiverName = receiverName;
     }
 
     public Float getUsdAmount() {
@@ -46,11 +46,11 @@ public class Transaction {
     }
 
 
-    public Integer getReceiverId() {
-        return receiverId;
+    public String getUserName() {
+        return userName;
     }
 
-    public String getReceiverUsername() {
-        return receiverUsername;
+    public String getReceiverName() {
+        return receiverName;
     }
 }
