@@ -21,6 +21,7 @@ git clone https://github.com/KevinZiadeh/Exchange-Rate-App.git
 - Type in `com.squareup.retrofit2:retrofit:2.9.0`, and make sure to select `Transitive Dependencies`,
 `JavaDocs`, and `Annotations`. The download destination should be the lib folder within your project directory.
 - Upon completion, repeat the above step, but for the following package: `com.squareup.retrofit2:converter-gson:2.9.0`.
+- Run the application by pressing on the Run button.
 
 ## Overview
 ### Structure
