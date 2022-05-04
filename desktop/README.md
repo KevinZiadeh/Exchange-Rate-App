@@ -25,7 +25,7 @@ git clone https://github.com/KevinZiadeh/Exchange-Rate-App.git
 ## Overview
 ### Structure
 <p align="center">
-  <img src="../res/desktop_structure.png?raw=true"/>
+  <img src="../res/desktop_structure.PNG?raw=true"/>
 </p>
 
 ### API
