@@ -4,13 +4,25 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <BorderPane xmlns="http://javafx.com/javafx"
             fx:id="borderPane" fx:controller="com.youssef12347.exchange.Parent"
             xmlns:fx="http://javafx.com/fxml" prefHeight="400.0"
             stylesheets="@parent.css"
-            prefWidth="600.0">
+            prefWidth="600.0" styleClass="root">
     <left>
-        <VBox spacing="5" styleClass="nav-container" fillWidth="true">
+        <VBox spacing="10" styleClass="nav-container" fillWidth="true" alignment="CENTER">
+
+            <children>
+                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@stats/shrek.png" />
+                    </image>
+                </ImageView>
+            </children>
+
+
             <Button styleClass="nav-button" text="Exchange Rate"
                     onAction="#ratesSelected"/>
             <Button fx:id="transactionButton" styleClass="nav-button"
@@ -30,7 +42,10 @@
             <Button fx:id="registerButton" styleClass="nav-button"
                     text="Register" onAction="#registerSelected"/>
             <Button fx:id="logoutButton" styleClass="nav-button" text="Logout" onAction="#logoutSelected"/>
+
         </VBox>
+
+
     </left>
     <center>
         <fx:include source="rates/rates.fxml"/>

@@ -4,16 +4,22 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<AnchorPane xmlns="http://javafx.com/javafx"
+<GridPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.youssef12347.exchange.transactions.Transactions"
-            prefHeight="400.0" prefWidth="600.0">
+            fx:controller="com.youssef12347.exchange.transactions.Transactions" alignment="center" hgap="10"
+            vgap="10"
+            prefHeight="400.0" prefWidth="600.0" stylesheets="@transactions.css" styleClass="root">
+
+    <Label text="My Transactions"
+           textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0"
+           GridPane.halignment="CENTER" styleClass="header"
+    />
+
+
     <TableView
             fx:id="tableView"
-            AnchorPane.bottomAnchor="4"
-            AnchorPane.leftAnchor="4"
-            AnchorPane.rightAnchor="4"
-            AnchorPane.topAnchor="4">
+            GridPane.columnIndex="0"
+            GridPane.rowIndex="2">
         <columns>
             <TableColumn text="USD Amount" fx:id="usdAmount"
                          prefWidth="150"/>
@@ -23,5 +29,5 @@
                          prefWidth="150"/>
         </columns>
     </TableView>
-</AnchorPane>
+</GridPane>
 

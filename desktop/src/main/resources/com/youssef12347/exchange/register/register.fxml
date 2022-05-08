@@ -5,6 +5,7 @@
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="com.youssef12347.exchange.register.Register"
           stylesheets="@register.css"
+          styleClass="root"
           prefHeight="400.0" prefWidth="600.0"
           orientation="VERTICAL"
           vgap="10"

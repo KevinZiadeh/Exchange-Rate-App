@@ -6,8 +6,8 @@
 <?import javafx.scene.layout.*?>
 <GridPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.youssef12347.exchange.myexchanges.MyExchanges"
-            prefHeight="400.0" prefWidth="600.0" stylesheets="@myexchanges.css">
+            fx:controller="com.youssef12347.exchange.myexchanges.MyExchanges" alignment="center"
+            prefHeight="400.0" prefWidth="600.0" stylesheets="@myexchanges.css" styleClass="root">
 
     <Label text="All sent transactions"
            textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0"
