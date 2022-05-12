@@ -4,8 +4,8 @@ This is the frontend Web implementation of the Exchange Rate Project for 430L. T
 
 ## Requirements
 
-1- Backend server must be set up and running. Please refer to corresponding [documentation](../backend/README.md)
-2- Node JS
+- Backend server must be set up and running. Please refer to corresponding [documentation](../backend/README.md)
+- Node JS
 
 
 ## Setup and Run

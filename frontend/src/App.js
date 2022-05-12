@@ -526,7 +526,7 @@ function App() {
                         />
                     </div>
                     <div className="wrapper">
-                        <Typography variant="h5">Given Transactions</Typography>
+                        <Typography variant="h5">All Sent Transactions</Typography>
                         <DataGrid
                             rows={userGiven}
                             columns={[
@@ -540,7 +540,7 @@ function App() {
                         />
                     </div>
                     <div className="wrapper">
-                        <Typography variant="h5">Received Transactions</Typography>
+                        <Typography variant="h5">All Received Transactions</Typography>
                         <DataGrid
                             rows={userReceived}
                             columns={[
