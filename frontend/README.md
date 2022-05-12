@@ -12,7 +12,7 @@ This is the frontend Web implementation of the Exchange Rate Project for 430L. T
 
 ```bash
 git clone https://github.com/KevinZiadeh/Exchange-Rate-App.git
-cd frontend
+cd Exchange-Rate-App/frontend
 npm install
 npm start
 ```
