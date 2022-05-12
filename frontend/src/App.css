@@ -1,0 +1,34 @@
+body {
+    background-color: #e0e0f0;
+    font-family: Helvetica, Arial;
+}
+
+.wrapper {
+    margin-top: 50px;
+    background-color: #fff;
+    border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+}
+
+.wrapper p {
+    font-style: italic;
+    color: #666;
+}
+
+.wrapper hr {
+    margin: 10px auto;
+}
+
+
+@media only screen and (min-width: 1400px) {
+    .wrapper {
+        width: 50%;
+    }
+}
+@media only screen and (max-width: 1399px) and (min-width: 750px) {
+    .wrapper {
+        width: 75%;
+    }
+}
