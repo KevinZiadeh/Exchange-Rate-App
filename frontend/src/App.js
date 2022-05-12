@@ -328,8 +328,7 @@ function App() {
 
             <AppBar position="static">
                 <Toolbar className="top_header" classes={{root: "nav"}}>
-                    <Typography   variant="h5" sx={{flexGrow: 1}}>Lebanese Pounds (LBP) to USD Exchange
-                        Tracker</Typography>
+                    <Typography   variant="h5" sx={{flexGrow: 1}}> 2a2wa Sarrafin - LBP to USD Tracker </Typography>
                     <img src={logo} alt="logo" className="logo" />
 
                     <div>
@@ -349,7 +348,7 @@ function App() {
             </AppBar>
 
             <div className="wrapper">
-                <h2>Today's Exchange Rate</h2>
+                <h2>Exchange Rates</h2>
                 <p>LBP to USD Exchange Rate</p>
                 <h3>Buy USD: <span id="buy-usd-rate">
           {buyUsdRate === "N.A" ? buyUsdRate : buyUsdRate}
@@ -359,7 +358,7 @@ function App() {
         </span></h3>
 
                 <hr/>
-                <Typography variant="h5" sx={{m: 1}}>Rate Calculator</Typography>
+                <Typography variant="h5" sx={{m: 1}}>Calculator</Typography>
                 <FormGroup style={{width: '80%', margin: 'auto'}}>
                     <TextField
                         type="number"
@@ -403,7 +402,7 @@ function App() {
             </div>
             <div className="wrapper">
                 <FormGroup style={{width: '50%', margin: 'auto'}}>
-                    <Typography variant="h5" align="center">Record a recent transaction</Typography>
+                    <Typography variant="h5" align="center">Add a Transaction</Typography>
                     <FormGroup>
                         <TextField
                             sx={{m: 1}}
@@ -460,7 +459,7 @@ function App() {
 
                     <div className="wrapper">
                         <FormGroup style={{width: '50%', margin: 'auto'}}>
-                            <Typography variant="h5" align="center">Record an exchange with a user</Typography>
+                            <Typography variant="h5" align="center">Add Transaction with Another User</Typography>
                             <FormGroup>
                                 <TextField
                                     sx={{m: 1}}
@@ -513,7 +512,7 @@ function App() {
 
 
                     <div className="wrapper">
-                        <Typography variant="h5">Your Transactions</Typography>
+                        <Typography variant="h5">My Transactions</Typography>
                         <DataGrid
                             rows={userTransactions}
                             columns={[
@@ -526,7 +525,8 @@ function App() {
                         />
                     </div>
                     <div className="wrapper">
-                        <Typography variant="h5">All Sent Transactions</Typography>
+                        <Typography variant="h5">My Exchanges</Typography>
+                        <Typography variant="h6">Gave To</Typography>
                         <DataGrid
                             rows={userGiven}
                             columns={[
@@ -538,9 +538,7 @@ function App() {
                             ]}
                             autoHeight
                         />
-                    </div>
-                    <div className="wrapper">
-                        <Typography variant="h5">All Received Transactions</Typography>
+                        <Typography variant="h6" style={{marginTop: 15 }}>Received From</Typography>
                         <DataGrid
                             rows={userReceived}
                             columns={[
@@ -562,8 +560,8 @@ function App() {
                 <div>
                     <ResponsiveContainer width="100%" height={250}>
                     <LineChart data={graphData} margin={{ top: 5, right: 20, bottom: 20, left: 0 }}>
-                        <Line type="monotone" dataKey="usdToLbp" name="USD to LBP" stroke="#82ca9d" />
-                        <Line type="monotone" dataKey="lbpToUsd" name="LBP to USD" stroke="#8884d8" />
+                        <Line type="monotone" dataKey="usdToLbp" name="USD Sell rate evolution" stroke="#82ca9d" />
+                        <Line type="monotone" dataKey="lbpToUsd" name="USD Buy rate evolution" stroke="#8884d8" />
                         <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                         <XAxis dataKey="name" />
                         <YAxis />
@@ -572,6 +570,7 @@ function App() {
                     </LineChart>
                     </ResponsiveContainer>
                 </div>
+                <Typography variant="h6">Additional Statistics</Typography>
                 <DataGrid
                     rows={StatRows}
                     columns={[
