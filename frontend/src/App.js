@@ -22,6 +22,7 @@ import ArrowDownwardTwoToneIcon from '@mui/icons-material/ArrowDownwardTwoTone';
 import ArrowUpwardTwoToneIcon from '@mui/icons-material/ArrowUpwardTwoTone';
 import {DataGrid} from '@mui/x-data-grid';
 import {LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer} from 'recharts';
+import logo from './shrek.png';
 
 
 var SERVER_URL = "http://127.0.0.1:5000"
@@ -310,7 +311,6 @@ function App() {
         }
     }, [fetchUserTransactions, userToken]);
 
-
     return (
         <div>
             <UserCredentialsDialog open={authState === States.USER_CREATION}
@@ -327,9 +327,11 @@ function App() {
             />
 
             <AppBar position="static">
-                <Toolbar classes={{root: "nav"}}>
-                    <Typography variant="h5" sx={{flexGrow: 1}}>Lebanese Pounds (LBP) to USD Exchange
+                <Toolbar className="top_header" classes={{root: "nav"}}>
+                    <Typography   variant="h5" sx={{flexGrow: 1}}>Lebanese Pounds (LBP) to USD Exchange
                         Tracker</Typography>
+                    <img src={logo} alt="logo" className="logo" />
+
                     <div>
                         {userToken !== null ? (
                                 <Button color="inherit" onClick={logout}>Logout</Button>) :
@@ -382,15 +384,16 @@ function App() {
                         size="small"
                     />
                     <FormControlLabel
-                        control={<Switch onChange={() => setUsdConvertChecked(!usdConvertChecked)} defaultChecked/>}
+                        control={<Switch style={{color: '#01872EFF'}} onChange={() => setUsdConvertChecked(!usdConvertChecked)} defaultChecked/>}
                         label="USD to LBP"
-                        style={{margin: 'auto'}}
+                        style={{margin: 'auto', color: 'success'}}
                     />
                     <Button
-                        color="primary"
+                        className="button_to_color"
                         variant="contained"
                         size="small"
                         onClick={convert}
+                        className="button_to_color"
                     >
                         Convert
                     </Button>
@@ -434,14 +437,13 @@ function App() {
                             </Select>
                         </FormControl>
 
-                        <Button type="button" color="primary" variant="contained"
+                        <Button className="button_to_color"  type="button" color="primary" variant="contained"
                                 onClick={addItem}>Add</Button>
                     </FormGroup>
                 </FormGroup>
 
 
             </div>
-
 
             <Snackbar
                 elevation={6}
@@ -501,7 +503,7 @@ function App() {
                                     </Select>
                                 </FormControl>
 
-                                <Button type="button" color="primary" variant="contained"
+                                <Button className="button_to_color" type="button" color="primary" variant="contained"
                                         onClick={addExchange}>Add</Button>
                             </FormGroup>
                         </FormGroup>

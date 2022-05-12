@@ -1,8 +1,20 @@
 body {
-    background-color: #e0e0f0;
+    background-color: #588771;
     font-family: Helvetica, Arial;
 }
 
+.top_header{
+background-color: #01872EFF;
+}
+
+.button_to_color{
+    background-color: #01872EFF !important;
+}
+
+.css-1yjjitx-MuiSwitch-track{
+    background-color: #018786 !important;
+
+}
 .wrapper {
     margin-top: 50px;
     background-color: #fff;
@@ -14,7 +26,13 @@ body {
 
 .wrapper p {
     font-style: italic;
-    color: #666;
+    color: #588771
+;
+}
+
+.logo{
+    max-width: 55px;
+    margin-right: 50px;
 }
 
 .wrapper hr {
