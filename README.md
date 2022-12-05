@@ -1,6 +1,6 @@
 # Currency Exchange Rate
 
-> University Project (EECE 430L - Web, Mobile, and Application Development Labw @ AUB) where we develop a n exchange rate app on multiple platforms having a REST API backend.
+> University Project (EECE 430L - Web, Mobile, and Application Development Lab @ AUB) where we develop an exchange rate app on multiple platforms having a REST API backend.
 
 ## Overview
 The application shows the exchange rate of the Lebanese Currency (LBP) against the US dollar (USD $), and allows the creation of users, adding transactions, calculating the equivalent amount of each currency in the other, as well as some statistical information about the data and user transactions. 
